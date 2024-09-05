@@ -13,6 +13,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.basicscodelab.ui.theme.BasicsCodelabTheme
 
+private val verticalPadding = 24.dp
+
 @Composable
 fun OnboardingScreen(
     onContinueClicked: () -> Unit,
@@ -25,7 +27,7 @@ fun OnboardingScreen(
     ) {
         Text("Welcome to the Basics Codelab!")
         Button(
-            modifier = Modifier.padding(vertical = 24.dp),
+            modifier = Modifier.padding(vertical = verticalPadding),
             onClick = { onContinueClicked() }
         ) {
             Text("Continue")

@@ -8,7 +8,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,7 +17,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -31,13 +29,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.basicscodelab.ui.theme.BasicsCodelabTheme
+
+private val verticalPadding = 4.dp
+private val horizontalPadding = 8.dp
+private val rowPadding = 24.dp
+private const val LIST_SIZE = 1000
+private const val WEIGHT = 1f
+private const val REPEAT = 4
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,9 +71,9 @@ fun MyApp(modifier: Modifier = Modifier) {
 @Composable
 private fun Greetings(
     modifier: Modifier = Modifier,
-    names: List<String> = List(1000) { "$it" }
+    names: List<String> = List(LIST_SIZE) { "$it" }
 ) {
-    LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
+    LazyColumn(modifier = modifier.padding(vertical = verticalPadding)) {
         items(names) { name ->
             Greeting(name = name)
         }
@@ -83,7 +87,10 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
         ),
-        modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+        modifier = modifier.padding(
+            vertical = verticalPadding,
+            horizontal = horizontalPadding
+        )
     ) {
         CardContent(name = name)
     }
@@ -95,7 +102,7 @@ private fun CardContent(name: String) {
 
     Row(
         modifier = Modifier
-            .padding(24.dp)
+            .padding(rowPadding)
             .animateContentSize(
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioMediumBouncy,
@@ -105,9 +112,9 @@ private fun CardContent(name: String) {
     ) {
         Column(
             modifier = Modifier
-                .weight(1f)
+                .weight(WEIGHT)
         ) {
-            Text(text = "Hello ")
+            Text(text = stringResource(R.string.hello))
             Text(
                 text = name,
                 style = MaterialTheme.typography.headlineMedium.copy(
@@ -116,8 +123,9 @@ private fun CardContent(name: String) {
             )
             if (expanded) {
                 Text(
-                    text = ("Composem ipsum color sit lazy, " +
-                            "padding theme elit, sed do bouncy. ").repeat(4),
+                    text = (
+                        "Composem ipsum color sit lazy, padding theme elit, sed do bouncy."
+                    ).repeat(REPEAT)
                 )
             }
         }
