@@ -135,26 +135,6 @@ private fun CardContent(name: String) {
     }
 }
 
-@Composable
-fun OnboardingScreen(
-    onContinueClicked: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Column(
-        modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text("Welcome to the Basics Codelab!")
-        Button(
-            modifier = Modifier.padding(vertical = 24.dp),
-            onClick = { onContinueClicked() }
-        ) {
-            Text("Continue")
-        }
-    }
-}
-
 @Preview(
     showBackground = true,
     widthDp = 320,
@@ -166,14 +146,6 @@ fun OnboardingScreen(
 fun GreetingPreview() {
     BasicsCodelabTheme {
         Greetings()
-    }
-}
-
-@Preview(showBackground = true, widthDp = 320, heightDp = 320)
-@Composable
-fun OnboardingPreview() {
-    BasicsCodelabTheme {
-        OnboardingScreen(onContinueClicked = {})
     }
 }
 
