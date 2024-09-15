@@ -21,11 +21,13 @@ interface. The learning covered in this project includes:
 
 ## Evidence
 
+https://github.com/user-attachments/assets/cc195121-dc37-4b3e-b271-b19ff926c769
+
 ## Prerequisites
 
 - **Android Studio**: Download the latest version of Android
   Studio [here](https://developer.android.com/studio).
-- **Kotlin**: The project uses Kotlin as the programming language. No additional setup required as
+- **Kotlin**: The project uses Kotlin as the programming language. No additional setup is required as
   it is bundled with Android Studio.
 
 ## Getting Started
