@@ -3,7 +3,7 @@
 ## Description
 
 This repository contains the project developed during
-the [Jetpack Compose Basics codelab](https://developer.android.com/codelabs/jetpack-compose-basics#0).
+the [Jetpack Compose Basics Codelab](https://developer.android.com/codelabs/jetpack-compose-basics#0).
 The project demonstrates the fundamentals of Jetpack Compose, a modern toolkit for building native
 Android UI with less code.
 
